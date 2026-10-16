@@ -12,6 +12,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Error Codes
 
 ### Events
+- Published `EVENT_SCHEMA_VERSION` and added the versioned event schema reference
+  (`docs/EVENT_SCHEMAS.md`) covering pool lifecycle, prediction, resolution, and payout
+  events, including compatibility rules and stable identifiers for idempotent indexing.
+- Added golden tests (`src/event_schema_tests.rs`) that pin exact topics and payload
+  shapes for representative lifecycle flows.
 
 ### Internal
 

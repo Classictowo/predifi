@@ -406,6 +406,27 @@ pub const MAX_PRICE_CONDITION_MATCH_STEPS: u32 = 4;
 /// **Used for:** Version tracking in instance storage and upgrade migration logic.
 pub const CONTRACT_VERSION: u32 = 1;
 
+/// Version of the public **event schema** emitted by the contract.
+///
+/// **Units:** Version number (dimensionless)
+/// **Value:** 1
+///
+/// **Rationale:** Off-chain indexers, subgraphs, and monitoring services depend on the
+/// topic names and payload fields of emitted events. This constant identifies the schema
+/// as a whole so consumers can detect when the shape of event data changes. A conforming
+/// schema (`1`) is documented in `docs/EVENT_SCHEMAS.md` and pinned by the golden tests in
+/// `src/event_schema_tests.rs`.
+///
+/// **Impact of changes:**
+/// - Must be incremented for any **breaking** change (renamed/removed topic, renamed/
+///   removed/retyped payload field, or changed event semantics).
+/// - Must NOT be incremented for additive changes (new topic, new optional field).
+/// - Should not be decremented (versions are monotonic).
+/// - Changing this without updating the reference document and golden tests will fail CI.
+///
+/// **Used for:** Signalling the event schema version to external indexers.
+pub const EVENT_SCHEMA_VERSION: u32 = 1;
+
 /// Minimum timelock delay in seconds for protocol fee changes.
 ///
 /// **Units:** Seconds

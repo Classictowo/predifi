@@ -445,6 +445,10 @@ pub struct Config {
 
 ## Events
 
+For the versioned, indexer-facing event schema reference — including topic names, field
+types, compatibility rules, and the stable identifiers needed for idempotent indexing —
+see [Event Schemas](./EVENT_SCHEMAS.md). The core events are listed below.
+
 ### `PoolCreatedEvent`
 
 Emitted when a new pool is created.
